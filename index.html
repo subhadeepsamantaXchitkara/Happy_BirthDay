@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Didi!</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-pink-50 text-gray-800">
+
+    <!-- THIS IS THE MUSIC PLAYER. It's hidden but the JavaScript will use it. -->
+    <audio id="birthday-song" src="hbd.mp3" preload="auto"></audio>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <!-- Header Section -->
+        <header class="text-center py-12 fade-in">
+            <h1 class="font-handwriting text-6xl md:text-8xl text-pink-500">Happy Birthday</h1>
+            <p class="text-3xl md:text-5xl mt-2 text-gray-700 font-medium">Didi! 🩵</p>
+        </header>
+
+        <!-- Main Content Section -->
+        <main>
+            <!-- Personal Message Section -->
+            <section class="bg-white rounded-2xl shadow-lg p-6 md:p-10 my-8 fade-in">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <img src="IMG-20201205-WA0017.jpg" 
+                         alt="A picture of my sister" 
+                         class="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover shadow-md border-4 border-pink-200"
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x400/f87171/ffffff?text=Image+Error';">
+                    <div class="text-center md:text-left">
+                        <h2 class="text-2xl md:text-3xl font-bold text-pink-600 mb-4">A Message for You...</h2>
+                        <!-- EDITED MESSAGE -->
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            On your special day, I wish you all the happiness and success in the world. I have always looked up to you, and I'm so grateful for your guidance and support. Thank you for being such a wonderful elder sister. May your year be filled with love, laughter, and countless blessings. With all my love and respect.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery Section -->
+            <section class="my-12 fade-in">
+                <h2 class="text-center text-3xl md:text-4xl font-bold text-pink-600 mb-8">Sweet Memories</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <!-- Replace these placeholder images with your own photos -->
+                    <!-- Added 'aspect-square' to each container to make them the same size -->
+                    <div class="aspect-square overflow-hidden rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="FB_IMG_1693217451633.jpg" alt="Memory 1" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x600/fb923c/ffffff?text=Image';">
+                    </div>
+                    <div class="aspect-square overflow-hidden rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="ChatGPT Image Aug 27, 2025, 04_38_36 PM.png" alt="Memory 2" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x600/facc15/ffffff?text=Image';">
+                    </div>
+                    <div class="aspect-square overflow-hidden rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="ChatGPT Image Aug 27, 2025, 04_45_46 PM.png" alt="Memory 3" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x600/4ade80/ffffff?text=Image';">
+                    </div>
+                    <div class="aspect-square overflow-hidden rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="IMG_20240403_183322.jpg" alt="Memory 4" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x600/38bdf8/ffffff?text=Image';">
+                    </div>
+                    <div class="aspect-square overflow-hidden rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="IMG_20240403_183526.jpg" alt="Memory 5" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x600/818cf8/ffffff?text=Image';">
+                    </div>
+                    <div class="aspect-square overflow-hidden rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="ChatGPT Image Aug 27, 2025, 04_50_29 PM.png" alt="Memory 6" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x600/c084fc/ffffff?text=Image';">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Surprise Button Section -->
+            <section class="text-center my-12 fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold text-pink-600 mb-4">A Little Surprise...</h2>
+                <p class="text-lg text-gray-600 mb-6">Click the button below for a celebration!</p>
+                <button id="surprise-btn" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-pink-600 transform hover:scale-110 transition-all duration-300">
+                    Celebrate!
+                </button>
+            </section>
+
+            <!-- Countdown Timer Section -->
+            <section class="bg-white rounded-2xl shadow-lg p-6 md:p-10 my-8 text-center fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold text-pink-600 mb-4">Countdown to the Next Celebration!</h2>
+                <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mt-6">
+                    <div class="bg-pink-100 p-4 rounded-lg">
+                        <div id="days" class="text-4xl font-bold text-pink-600">0</div>
+                        <div class="text-sm text-gray-500">Days</div>
+                    </div>
+                    <div class="bg-pink-100 p-4 rounded-lg">
+                        <div id="hours" class="text-4xl font-bold text-pink-600">0</div>
+                        <div class="text-sm text-gray-500">Hours</div>
+                    </div>
+                    <div class="bg-pink-100 p-4 rounded-lg">
+                        <div id="minutes" class="text-4xl font-bold text-pink-600">0</div>
+                        <div class="text-sm text-gray-500">Minutes</div>
+                    </div>
+                    <div class="bg-pink-100 p-4 rounded-lg">
+                        <div id="seconds" class="text-4xl font-bold text-pink-600">0</div>
+                        <div class="text-sm text-gray-500">Seconds</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 text-gray-500 fade-in">
+            <p>Made with ❤️ for the best sister in the world.</p>
+        </footer>
+
+    </div>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
